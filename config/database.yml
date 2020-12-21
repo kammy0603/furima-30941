@@ -52,3 +52,4 @@ production:
   database: furima_30941_production
   username: furima_30941
   password: <%= ENV['FURIMA_30941_DATABASE_PASSWORD'] %>
+
