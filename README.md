@@ -44,7 +44,7 @@
 | municipalities  | string  | null: false       |
 | address         | string  | null: false       |
 | building_number | string  |                   |
-| phone_number    | integer | null: false       |
+| phone_number    | string  | null: false       |
 | user_id         | integer | foreign_key: true |
 
 
