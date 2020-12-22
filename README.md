@@ -1,15 +1,15 @@
 ## users テーブル
 
-| Column            | Type    | Options     |
-| --------          | ------  | ----------- |
-| nickname          | string  | null: false |
-| email             | string  | null: false |
-| password          | string  | null: false |
-| family_name_kanji | string  | null: false |
-| first_name_kanji  | string  | null: false |
-| family_name_kana  | string  | null: false |
-| first_name_kana   | string  | null: false |
-| birthday          | integer | null: false |
+| Column             | Type    | Options     |
+| --------           | ------  | ----------- |
+| nickname           | string  | null: false |
+| email              | string  | null: false |
+| encrypted_password | string  | null: false |
+| family_name_kanji  | string  | null: false |
+| first_name_kanji   | string  | null: false |
+| family_name_kana   | string  | null: false |
+| first_name_kana    | string  | null: false |
+| birthday           | date    | null: false |
 
 ### Association
 
@@ -20,40 +20,36 @@
 
 | Column               | Type          | Options     |
 | ------               | ------        | ----------- |
-| image                | ActiveStorage | ----------- |
-| product_name         | text          | null: false |
+| product_name         | string        | null: false |
 | product_introduction | text          | null: false |
-| category             | string        | null: false |
-| product_status       | string        | null: false |
+| category             | integer       | null: false |
+| product_status       | integer       | null: false |
 | distribution_fee     | integer       | null: false |
-| region               | string        | null: false |
-| distribution_term    | string        | null: false |
+| region               | integer       | null: false |
+| distribution_term    | integer       | null: false |
 | price                | integer       | null: false |
 | user_id              | integer       | foreign_key: true |
 
 ### Association
 
-- has_one    :purchases
-- belongs_to :users
+- has_one    :purchase
+- belongs_to :user
 
 ## purchases テーブル
 
 | Column          | Type    | Option            |
 | ------          | ------- | -----------       |
-| card_number     | integer | null: false       |
-| invalid_limit   | integer | null: false       |
-| security_code   | integer | null: false       |
-| postal_code     | integer | null: false       |
-| prefecture      | string  | null: false       |
+| postal_code     | string  | null: false       |
+| prefecture      | integer | null: false       |
 | municipalities  | string  | null: false       |
-| address         | strings | null: false       |
+| address         | string  | null: false       |
 | building_number | string  |                   |
 | phone_number    | integer | null: false       |
 | user_id         | integer | foreign_key: true |
-| products        | integer | foreign_key: true |
+| product_id      | integer | foreign_key: true |
 
 
 ### Association
 
-- belongs_to :products
-- belongs_to :users
+- belongs_to :product
+- belongs_to :user
