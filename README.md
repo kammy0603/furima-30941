@@ -3,7 +3,7 @@
 | Column             | Type    | Options      |
 | --------           | ------  | -----------  |
 | nickname           | string  | null: false  |
-| email              | string  | unique: true |
+| email              | string  | unique: true null:false|
 | encrypted_password | string  | null: false  |
 | family_name_kanji  | string  | null: false  |
 | first_name_kanji   | string  | null: false  |
@@ -32,7 +32,6 @@
 
 ### Association
 
-- has_one  :purchase
 - has_many :user_product
 
 ## purchases テーブル
