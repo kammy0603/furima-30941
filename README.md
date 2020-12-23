@@ -45,7 +45,7 @@
 | address         | string  | null: false       |
 | building_number | string  |                   |
 | phone_number    | string  | null: false       |
-| user_id         | integer | foreign_key: true |
+| user_product_id | integer | foreign_key: true |
 
 
 ### Association
