@@ -1,24 +1,66 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type    | Options      |
+| --------           | ------  | -----------  |
+| nickname           | string  | null: false  |
+| email              | string  | unique: true null:false|
+| encrypted_password | string  | null: false  |
+| family_name_kanji  | string  | null: false  |
+| first_name_kanji   | string  | null: false  |
+| family_name_kana   | string  | null: false  |
+| first_name_kana    | string  | null: false  |
+| birthday           | date    | null: false  |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many :users_products
+- has_many :products
 
-* System dependencies
+## products テーブル
 
-* Configuration
+| Column               | Type          | Options     |
+| ------               | ------        | ----------- |
+| name                 | string        | null: false |
+| introduction         | text          | null: false |
+| category_id          | integer       | null: false |
+| product_status_id    | integer       | null: false |
+| distribution_fee_id  | integer       | null: false |
+| region_id            | integer       | null: false |
+| distribution_term_id | integer       | null: false |
+| price                | integer       | null: false |
+| user                 | references    | foreign_key: true |
 
-* Database creation
+### Association
 
-* Database initialization
+- has_one  :user_product
+- belong_to :user
 
-* How to run the test suite
+## purchases テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column          | Type       | Option            |
+| ------          | -------    | -----------       |
+| postal_code     | string     | null: false       |
+| region_id       | integer    | null: false       |
+| municipalities  | string     | null: false       |
+| address         | string     | null: false       |
+| building_number | string     |                   |
+| phone_number    | string     | null: false       |
+| user_product    | references | foreign_key: true |
 
-* Deployment instructions
 
-* ...
+### Association
+
+- belong_to :user_product
+
+
+## Users_Products テーブル
+| Column       | Type       | Option            |
+| ------       | -------    | -----------       |
+| user         | references | foreign_key: true |
+| product      | references | foreign_key: true |
+
+### Association
+
+- belongs_to :product
+- belongs_to :user
+- has_one :purchase
