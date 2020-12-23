@@ -33,7 +33,7 @@
 ### Association
 
 - has_one  :purchase
-- has_many :users_products
+- has_many :user_product
 
 ## purchases テーブル
 
@@ -56,7 +56,6 @@
 | Column          | Type    | Option            |
 | ------          | ------- | -----------       |
 | user_id         | integer | foreign_key: true |
-| product_id      | integer | foreign_key: true |
 | product_id      | integer | foreign_key: true |
 
 ### Association
