@@ -14,7 +14,7 @@
 ### Association
 
 - has_many :users_products
-- has_many :purchases
+- has_many :products
 
 ## products テーブル
 
@@ -28,37 +28,38 @@
 | region_id            | integer       | null: false |
 | distribution_term_id | integer       | null: false |
 | price                | integer       | null: false |
-| user_id              | integer       | foreign_key: true |
+| user                 | references    | foreign_key: true |
 
 ### Association
 
 - has_many :user_product
 - has_one  :purchase
+- belong_to :user
 
 ## purchases テーブル
 
-| Column          | Type    | Option            |
-| ------          | ------- | -----------       |
-| postal_code     | string  | null: false       |
-| region_id       | integer | null: false       |
-| municipalities  | string  | null: false       |
-| address         | string  | null: false       |
-| building_number | string  |                   |
-| phone_number    | string  | null: false       |
-| user_product_id | integer | foreign_key: true |
+| Column          | Type       | Option            |
+| ------          | -------    | -----------       |
+| postal_code     | string     | null: false       |
+| region_id       | integer    | null: false       |
+| municipalities  | string     | null: false       |
+| address         | string     | null: false       |
+| building_number | string     |                   |
+| phone_number    | string     | null: false       |
+| user_product    | references | foreign_key: true |
 
 
 ### Association
 
 - belong_to :product
-- belong_to :users_products
+- belong_to :user_product
 
 
 ## Users_Products テーブル
-| Column          | Type    | Option            |
-| ------          | ------- | -----------       |
-| user_id         | integer | foreign_key: true |
-| product_id      | integer | foreign_key: true |
+| Column       | Type       | Option            |
+| ------       | -------    | -----------       |
+| user         | references | foreign_key: true |
+| product      | references | foreign_key: true |
 
 ### Association
 
