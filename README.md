@@ -1,15 +1,15 @@
 ## users テーブル
 
-| Column             | Type    | Options     |
-| --------           | ------  | ----------- |
-| nickname           | string  | null: false |
-| email              | string  | null: false |
-| encrypted_password | string  | null: false |
-| family_name_kanji  | string  | null: false |
-| first_name_kanji   | string  | null: false |
-| family_name_kana   | string  | null: false |
-| first_name_kana    | string  | null: false |
-| birthday           | date    | null: false |
+| Column             | Type    | Options      |
+| --------           | ------  | -----------  |
+| nickname           | string  | null: false  |
+| email              | string  | unique: true |
+| encrypted_password | string  | null: false  |
+| family_name_kanji  | string  | null: false  |
+| first_name_kanji   | string  | null: false  |
+| family_name_kana   | string  | null: false  |
+| first_name_kana    | string  | null: false  |
+| birthday           | date    | null: false  |
 
 ### Association
 
@@ -50,17 +50,17 @@
 
 ### Association
 
-- belongs_to :product
-- belongs_to :user
-
+- belongs_to :users_products
 
 ## Users_Products テーブル
 | Column          | Type    | Option            |
 | ------          | ------- | -----------       |
 | user_id         | integer | foreign_key: true |
 | product_id      | integer | foreign_key: true |
+| product_id      | integer | foreign_key: true |
 
 ### Association
 
 - belongs_to :product
 - belongs_to :user
+- has_one :purchase
