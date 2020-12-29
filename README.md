@@ -13,17 +13,17 @@
 
 ### Association
 
-- has_many :users_products
-- has_many :products
+- has_many :users_items
+- has_many :items
 
-## products テーブル
+## items テーブル
 
 | Column               | Type          | Options     |
 | ------               | ------        | ----------- |
 | name                 | string        | null: false |
 | introduction         | text          | null: false |
 | category_id          | integer       | null: false |
-| product_status_id    | integer       | null: false |
+| item_status_id       | integer       | null: false |
 | distribution_fee_id  | integer       | null: false |
 | region_id            | integer       | null: false |
 | distribution_term_id | integer       | null: false |
@@ -32,7 +32,7 @@
 
 ### Association
 
-- has_one  :user_product
+- has_one  :user_item
 - belong_to :user
 
 ## purchases テーブル
@@ -45,22 +45,22 @@
 | address         | string     | null: false       |
 | building_number | string     |                   |
 | phone_number    | string     | null: false       |
-| user_product    | references | foreign_key: true |
+| user_item       | references | foreign_key: true |
 
 
 ### Association
 
-- belong_to :user_product
+- belong_to :user_item
 
 
 ## Users_Products テーブル
 | Column       | Type       | Option            |
 | ------       | -------    | -----------       |
 | user         | references | foreign_key: true |
-| product      | references | foreign_key: true |
+| item         | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :product
+- belongs_to :item
 - belongs_to :user
 - has_one :purchase
