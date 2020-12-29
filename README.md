@@ -53,7 +53,7 @@
 - belong_to :user_item
 
 
-## Users_Products テーブル
+## Users_itemss テーブル
 | Column       | Type       | Option            |
 | ------       | -------    | -----------       |
 | user         | references | foreign_key: true |
