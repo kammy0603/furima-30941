@@ -1,10 +1,10 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :genre
-  belongs_to :status
-  belongs_to :distribution_fee
-  belongs_to :region
-  belongs_to :term
+  belongs_to_active_hash :genre
+  belongs_to_active_hash :status
+  belongs_to_active_hash :distribution_fee
+  belongs_to_active_hash :region
+  belongs_to_active_hash :term
 
   belongs_to :user
   has_one_attached :image
@@ -20,7 +20,6 @@ class Item < ApplicationRecord
   with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' } do
   validates :price, inclusion: { in: 300..9999999 }
   end
-  validates :distribution_term_id, presence: true
 
   validates :genre_id, numericality: { other_than: 1 }
   validates :status_id, numericality: { other_than: 1 }
