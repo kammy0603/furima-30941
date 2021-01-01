@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'ユーザー新規登録' do
-    it "全ての値が揃っている時登録できる" do
+    it '全ての値が揃っている時登録できる' do
       expect(@user).to be_valid
     end
 
