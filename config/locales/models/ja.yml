@@ -13,6 +13,15 @@ ja:
         term_id: 発送までの日数
         price: 価格
         image: 画像
+  activerecord:
+    models:
+      image: 画像
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
 
 
 
