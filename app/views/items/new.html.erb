@@ -7,10 +7,9 @@
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with(model: @item, local: true) do |f| %>
 
-    <% if @item.valid? %>
-    <% @item.save 
-       return redirect_to root_path %>
-    <% else %>   
+    <% unless @item.save %>
+    <%# @item.save 
+       return redirect_to root_path %> 
     <%= render 'shared/error_messages', model: f.object %>
     <% end %>
 
