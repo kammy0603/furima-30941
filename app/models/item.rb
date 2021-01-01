@@ -19,10 +19,9 @@ class Item < ApplicationRecord
   validates :region_id,       numericality: { other_than: 1 }
   validates :term_id,         numericality: { other_than: 1 }
 
-  #with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' } do
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' }, numericality: { greater_than: 300, less_than: 9999999 }
-    #inclusion: { in: 300..9_999_999 }
-  #end
-
-
+  # with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' } do
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' },
+                    numericality: { greater_than: 300, less_than: 9_999_999 }
+  # inclusion: { in: 300..9_999_999 }
+  # end
 end
