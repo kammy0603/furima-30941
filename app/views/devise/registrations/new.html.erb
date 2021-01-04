@@ -6,7 +6,7 @@
       会員情報入力
     </h1>
   </div>
-  <% unless @user.save %>
+  <% if @user.errors.any? %>
   <%= render 'shared/error_messages', model: f.object %>    
   <% end %>
   <div class="form-group">
