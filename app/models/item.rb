@@ -23,10 +23,6 @@ class Item < ApplicationRecord
   validates :term_id
   end
 
-
-  # with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' } do
   validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' },
                     numericality: { greater_than: 299, less_than: 100_000_000 }
-  # inclusion: { in: 300..9_999_999 }
-  # end
 end

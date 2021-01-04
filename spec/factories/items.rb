@@ -4,7 +4,6 @@ FactoryBot.define do
     introduction         { Faker::Lorem.sentence }
     region_id            { 5 }
     price                { 1000 }
-    user_id              { 1 }
     genre_id             { 2 }
     status_id            { 2 }
     distribution_id      { 2 }
