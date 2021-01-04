@@ -34,7 +34,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('カテゴリーは数値で入力してください')
     end
-    
+
     it 'genre_idが1では登録できない' do
       @item.genre_id = 1
       @item.valid?
@@ -47,9 +47,9 @@ RSpec.describe Item, type: :model do
     end
 
     it 'status_idが1では登録できない' do
-        @item.status_id = 1
-        @item.valid?
-        expect(@item.errors.full_messages).to include('商品の状態は1以外の値にしてください')
+      @item.status_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include('商品の状態は1以外の値にしてください')
     end
 
     it 'distribution_idが空では登録できない' do
@@ -91,7 +91,7 @@ RSpec.describe Item, type: :model do
     it 'priceが空では登録できない' do
       @item.price = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("価格が入力されていません。", "価格半角数字を使用してください", "価格は数値で入力してください")
+      expect(@item.errors.full_messages).to include('価格が入力されていません。', '価格半角数字を使用してください', '価格は数値で入力してください')
     end
     it '価格の範囲が、¥300~¥9,999,999の間でないと登録できない' do
       @item.price = 100
