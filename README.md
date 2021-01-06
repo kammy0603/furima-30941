@@ -13,7 +13,7 @@
 
 ### Association
 
-- has_many :users_items
+- has_many :purchases
 - has_many :items
 
 ## items テーブル
@@ -32,10 +32,10 @@
 
 ### Association
 
-- has_one  :user_item
+- has_one  :purchase
 - belong_to :user
 
-## purchases テーブル
+## Orders テーブル
 
 | Column          | Type       | Option            |
 | ------          | -------    | -----------       |
@@ -50,10 +50,10 @@
 
 ### Association
 
-- belong_to :user_item
+- belong_to :purchase
 
 
-## Users_itemss テーブル
+## Purchases テーブル
 | Column       | Type       | Option            |
 | ------       | -------    | -----------       |
 | user         | references | foreign_key: true |
@@ -63,4 +63,4 @@
 
 - belongs_to :item
 - belongs_to :user
-- has_one :purchase
+- has_one :order
