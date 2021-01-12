@@ -10,10 +10,6 @@ RSpec.describe UserOrder, type: :model do
     it '全ての値が揃っている時住所登録できる' do
       expect(@user_order).to be_valid
     end
-
-    it 'tokenがあれば保存ができること' do
-      expect(@user_order).to be_valid
-    end
   end
 
   context '商品購入がうまく行かない時' do
