@@ -17,16 +17,6 @@ RSpec.describe UserOrder, type: :model do
   end
 
   context '商品購入がうまく行かない時' do
-    it 'クレジットカード情報が空では決済できないこと' do
-    end
-    
-    it 'クレジットカードの有効期限が空では決済できないこと'do
-      
-    end
-
-    it 'クレジットカードのセキュリティコードが空では決済できないこと'do
-      
-    end
 
     it '郵便番号が空では決済できないこと'do
       @user_order.postal_code = ''
@@ -56,6 +46,18 @@ RSpec.describe UserOrder, type: :model do
       @user_order.phone_number = ''
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include('Phone number半角数字を使用してください')
+    end
+
+    it '電話番号にはハイフンは不要であること'do
+    @user_order.phone_number = '090-1234-5678'
+    @user_order.valid?
+    expect(@user_order.errors.full_messages).to include('Phone number半角数字を使用してください')
+    end
+
+    it '電話番号は11桁以内であること'do
+    @user_order.phone_number = '00000000'
+    @user_order.valid?
+    expect(@user_order.errors.full_messages).to include('Phone number半角数字を使用してください')
     end
 
     it "tokenが空では登録できないこと" do
