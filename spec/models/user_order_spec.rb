@@ -10,6 +10,12 @@ RSpec.describe UserOrder, type: :model do
     it '全ての値が揃っている時住所登録できる' do
       expect(@user_order).to be_valid
     end
+
+    it '建物が空でも登録できる' do
+      @user_order.building_number = ''
+      expect(@user_order).to be_valid
+    end
+
   end
 
   context '商品購入がうまく行かない時' do
@@ -20,7 +26,7 @@ RSpec.describe UserOrder, type: :model do
     end
 
     it '都道府県が空では決済できないこと' do
-      @user_order.prefecture = 1
+      @user_order.prefecture = 0
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include('Prefectureは0以外の値にしてください')
     end
