@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order('created_at DESC')
+    purchase = Purchase.new
   end
 
   def new
@@ -20,12 +21,16 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @order = Purchase.new
+    unless user_signed_in?
+      if @item.purchase.present?
+      redirect_to root_path
+      end
+    end
   end
 
   def edit
-    if current_user.id != @item.user_id
-    redirect_to root_path
-    end
+    redirect_to root_path if current_user.id != @item.user_id || @item.purchase.present?
   end
 
   def update
