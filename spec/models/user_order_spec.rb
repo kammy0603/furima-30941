@@ -10,6 +10,10 @@ RSpec.describe UserOrder, type: :model do
     it '全ての値が揃っている時住所登録できる' do
       expect(@user_order).to be_valid
     end
+
+    it "tokenがあれば保存ができること" do
+      expect(@user_order).to be_valid
+    end
   end
 
   context '商品購入がうまく行かない時' do
@@ -52,6 +56,12 @@ RSpec.describe UserOrder, type: :model do
       @user_order.phone_number = ''
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include('Phone number半角数字を使用してください')
+    end
+
+    it "tokenが空では登録できないこと" do
+      @user_order.token = nil
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("Tokenが入力されていません。")
     end
   end
 end
