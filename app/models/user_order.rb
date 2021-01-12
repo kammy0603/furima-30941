@@ -2,6 +2,7 @@ class UserOrder
   include ActiveModel::Model
   attr_accessor :postal_code, :prefecture, :municipalities, :address, :building_number, :phone_number
   attr_accessor :token
+  
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "-を使用してください" }
     validates :prefecture
