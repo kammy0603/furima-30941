@@ -40,12 +40,12 @@
 | Column          | Type       | Option            |
 | ------          | -------    | -----------       |
 | postal_code     | string     | null: false       |
-| region_id       | integer    | null: false       |
+| prefecture      | integer    | null: false       |
 | municipalities  | string     | null: false       |
 | address         | string     | null: false       |
 | building_number | string     |                   |
 | phone_number    | string     | null: false       |
-| user_item       | references | foreign_key: true |
+| purchase        | references | foreign_key: true |
 
 
 ### Association
