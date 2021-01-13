@@ -62,9 +62,22 @@ RSpec.describe UserOrder, type: :model do
     end
 
     it 'tokenが空では登録できないこと' do
-      @user_order.token = nil
+      @user_order.token = ''
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include('Tokenが入力されていません。')
     end
+
+    it 'user_idが空だと登録できない' do
+      @user_order.user_id = ''
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include('Userが入力されていません。')
+    end
+    
+    it 'item_idが空だと登録できない' do
+      @user_order.item_id = ''
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include('Itemが入力されていません。')
+    end
+
   end
 end

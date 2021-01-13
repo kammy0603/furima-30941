@@ -4,11 +4,12 @@ class UserOrder
 
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: '-を使用してください' }
-    validates :prefecture
     validates :municipalities
     validates :address
     validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: '半角数字を使用してください' }
     validates :token
+    validates :user_id
+    validates :item_id
   end
   with_options numericality: { other_than: 0 } do
     validates :prefecture
